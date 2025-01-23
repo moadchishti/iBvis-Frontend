@@ -1,0 +1,364 @@
+.homepage {
+  position: relative;
+  /* background-image: url('../../assets/homepage_background.jpg'); Your image */
+  background-size: cover; /* Make the background cover the whole screen */
+  background-position: center; /* Position the image at the center */
+  /* height: 100vh; Set the height of the page to 100% of the viewport */
+  width: 100vw;
+  color: white; /* Optional: Make text white to stand out on dark background */
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the div takes up at least 100% of the viewport height */
+  overflow-y: auto;
+  padding-top: 9.375rem;
+  z-index: 999;
+
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+
+  /* For transparency effect */
+  background-color: transparent;
+}
+
+.mainContent {
+  z-index: 0;
+}
+
+/* #particles canvas {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  overflow-y: scroll;
+} */
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../assets/homepage_background.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Ensure it's behind the content */
+  }
+
+.homepage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dim the image with a black overlay */
+  z-index: -1; /* Ensure the overlay is below other content */
+}
+
+.mainText {
+  font-size: large;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  margin-top: 0;
+}
+
+.animContainer {
+  height: 50px; /* Adjust according to the height of the largest possible text */
+  overflow: hidden;
+}
+
+.description {
+    margin-top: 0;
+    font-weight: 500;
+    font-size: 20px;
+    padding-top: 2rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+    padding-bottom  : 3rem;
+
+}
+
+/* .introText {
+    padding-top: 12rem;
+} */
+
+.moreInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Ensures sections are side by side */
+  gap: 3rem; /* Reduces spacing between sections */
+  margin-top: 5rem; /* Adjust the margin from the content above */
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-bottom: 4rem;
+  /* padding: 50px; */
+}
+
+.moreInfo div {
+  text-align: left; /* Aligns text properly */
+  padding: 0.5rem; /* Adjusts internal spacing */
+  margin: 0; /* Removes extra margin */
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px); 
+    border-radius: 12px;
+}
+
+.particles {
+  position: fixed; /* Ensures particles are positioned relative to the container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Keeps particles behind the content */
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Ensure the content is stacked properly */
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoHeading {
+  padding: 0.8rem;
+  border: 4px solid;
+  border-radius: 30px;
+  border-color: #3498db;
+  background: #00000000;
+  margin-bottom: 20px;
+  text-align: center;
+  /* width: 3rem; */
+  backdrop-filter: blur(5px);
+}
+
+.points {
+  /* display: flex; */
+  /* flex-direction: column;  Stack the grid vertically if needed */
+  /* justify-content: center; Center the content */
+  /* align-items: center;     Center items */
+  position: relative;      /* Ensure it stays above the particles */
+  width: 100%;
+  /* height: 100VH; */
+  /* z-index: 1;              Keeps it above the particles */
+  /* overflow-y: auto; */
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 equal columns */
+  gap: 5vw;                      /* Optional: space between grid items */
+  /* width: 100%;                    Make the container span the full width */
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.grid_item {
+  /* background-color: lightblue; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* padding: 20px; */
+  border: 1px solid #ccc;
+  text-align: left; /* Optional: to center text inside */
+  width: 100%;
+  border: 0px;
+}
+
+.pointDescription {
+  font-style: italic;
+  padding-top: 0;
+}
+
+.solutions {
+  
+}
+
+.contact {
+  background-color: #00000083;
+  color: white;
+  backdrop-filter: blur(2px);
+}
+
+.contactCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns: one for the left card, one for the right column */
+  grid-template-rows: 1fr 1fr;    /* Two rows on the right: top and bottom */
+  grid-gap: 20px;                 /* Add some space between the cards */
+  height: 100vh; 
+  width: 70rem;
+}
+
+.contactCard {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px ;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  grid-row: span 2;               /* Make the left card span both rows */
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 40rem;
+  font-weight: lighter;
+  color: black
+}
+
+.select {
+  color: black
+}
+
+.rightCards {
+  display: grid;
+  grid-template-rows: 1fr 1fr;    /* Stack two cards vertically */
+  gap: 20px;   
+}
+
+
+
+.myForm {
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  color: rgb(95, 95, 95);
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: rgb(221, 221, 221);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.253);
+  color: black
+}
+
+.textarea {
+  height: 100px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* .button:hover {
+  background-color: #205c85;
+} */
+
+.featuresContainer {
+  display: flex; /* Arrange the boxes horizontally */
+  justify-content: space-around; /* Space between the boxes */
+  align-items: center; /* Align boxes vertically (optional) */
+  gap: 20px; /* Add spacing between boxes if needed */
+  padding: 10px;
+  flex-direction: row;
+}
+
+.informationBoxes {
+  display: flex;
+  flex-direction: row;
+  position: relative; /* Ensure the content is stacked properly */
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.featuresBox {
+  /* width: 100px; Adjust width of the box */
+  height: 50vh; /* Adjust height of the box */
+  width: 28vw;
+  padding: 10px;
+  margin-left: 100px;
+  border: 4px solid white; /* White border */
+  background-color: #333; /* Background color for the box */
+  color: white; /* Text color */
+  display: flex;
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  border-radius: 50px; /* Rounded corners (optional) */
+  background: #00000000;
+  backdrop-filter: blur(10px); 
+  transition: transform 0.3s ease;
+  flex-direction: column;
+  text-align: center;
+}
+
+.featureHeading {
+  text-decoration: underline;
+}
+
+/* .featuresBox:hover {
+  transform: scale(1.2);
+  z-index: 100; 
+  backdrop-filter: blur(8px); 
+} */
+
+.icon {
+  width: 10rem;
+}
+
+
+.meetingTitle {
+  color: rgb(95, 95, 95);
+}
+
+.meetingText {
+  color: rgb(95, 95, 95);
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.meetingButton {
+  width: 15rem;
+  height: 3rem;
+  /* margin-top: 2rem; */
+  background-color:#3498db;
+}
+
+.meetingIcon {
+  width: 5rem;
+}
+
+.meetingCard {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px ;
+  display: flex;
+  flex-direction: column;
+}
