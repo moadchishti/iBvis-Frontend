@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Homepage.module.css";
 import Navbar from "../../components/Navbar/Navbar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import CursorBlinker from "../../components/CursorBlinker/CursorBlinker";
 import A4Animation from "../../components/A4Animation/A4Animation";
@@ -13,6 +13,7 @@ import scan from "../../assets/icons/scan.png";
 import edgeComputing from "../../assets/icons/edgeComputing.png";
 import multipleIcone from "../../assets/icons/multipleIcon.png";
 import meetingIcon from "../../assets/icons/meeting.png";
+import whatsappIcon from "../../assets/icons/whatsapp.png";
 
 const text = "Gradual Spacing";
 
@@ -37,10 +38,22 @@ const HomePage = () => {
     mainText.slice(0, latest)
   );
 
+  const myRef = useRef(null);
+  const featuresRef = useRef(null);
+
+  // const executeScroll = () => myRef.current.scrollIntoView('smooth')  
+  const executeScroll = () => {
+    myRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const jumpToFeaturesFunc = () => {
+    featuresRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
     <>
       <div className={styles.mainContent}>
-        <Navbar />
+        <Navbar jump={executeScroll} jumpToFeatures={jumpToFeaturesFunc}/>
 
         <div className={styles.homepage}>
           <div
@@ -56,10 +69,11 @@ const HomePage = () => {
               {/* </div> */}
             </span>
             <p className={styles.description}>
-              Upgrade your CCTV with our AI solution for smarter, real-time
-              surveillance. Enjoy features like breach detection, parking
-              management, and vehicle monitoring—all in one easy-to-deploy
-              device.
+              Upgrade your CCTV with our AI solution for smarter, automated
+              surveillance, production-line quality check, work-zone safety
+              monitoring, and in/out control of both vehicles and people.. Enjoy
+              features like breach detection, parking management, and vehicle
+              monitoring—all in one easy-to-deploy device.
             </p>
           </div>
           <div className={styles.moreInfo}>
@@ -71,17 +85,17 @@ const HomePage = () => {
               </p>
             </div>
             <div className={styles.card}>
-              <h3>Edge AI Power</h3>
+              <h3>AI for Security, Compliance & Analytics</h3>
               <p>
-                Enjoy real-time processing for breach detection, number plate
-                scanning, and more, all without cloud reliance.
+                Versatile AI for Quality Control, Security, Compliance, and
+                Analytics—Tailored to Your Needs.
               </p>
             </div>
             <div className={styles.card}>
-              <h3>Smart Surveillance</h3>
+              <h3>Edge AI Power</h3>
               <p>
-                Manage parking, monitor vehicles, and secure zones with advanced
-                AI features in one compact solution.
+                No Cloud Needed—All Your Data Remains Securely Stored On-Site
+                for Complete Control and Privacy.
               </p>
             </div>
           </div>
@@ -94,7 +108,7 @@ const HomePage = () => {
             <ParticlesComponent className={styles.particles} />
           </div>
           {/* <h3 className={styles.infoHeading}>What we Offer</h3> */}
-          <div className={styles.features}>
+          <div className={styles.features} ref={featuresRef}>
             <div className={styles.information}>
               <h3 className={styles.infoHeading}>Features</h3>
               {/* <div class={styles.featuresContainer}>
@@ -226,15 +240,15 @@ const HomePage = () => {
                   <p className={styles.pointDescription}>
                     Our AI is designed to address a wide range of challenges,
                     from monitoring workplace compliance and machinery
-                    performance to drone-powered site inspections. Whether it’s
-                    quality control, security, or operational analytics, our
-                    system adapts to meet your specific needs.
+                    performance to site inspections. Whether it’s quality
+                    control, security, or operational analytics, our system
+                    adapts to meet your specific needs.
                   </p>
                 </motion.div>
               </div>
               <motion.div
                 className={styles.grid_item}
-                initial={{ x: "-20%", opacity: "0" }} // Starts off-screen to the left
+                initial={{ x: "20%", opacity: "0" }} // Starts off-screen to the left
                 whileInView={{ x: 0, opacity: 1 }} // When in view, slide to position 0
                 transition={{ type: "spring", damping: 17, duration: 0.5 }} // Smooth transition
                 viewport={{ once: true }} // The animation triggers once when the element is in view
@@ -257,107 +271,186 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className={styles.solutions}>
+      {/* <div className={styles.solutions}>
         <div className={styles.information}>
           <h3 className={styles.infoHeading}>AI for Your Business</h3>
         </div>
-      </div>
+      </div> */}
 
-      <div className={styles.contact}>
-        <div className={styles.information}>
-          <h2>Contact Us to Enhance Your Business with AI</h2>
-          <div className={styles.contactCards}>
-            <div className={styles.from}>
-              <form className={styles.myForm}>
-                <div className={styles.formGroup}>
-                  <label htmlFor="name" className={styles.label}>
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className={styles.input}
-                    required
-                  />
-                </div>
+      <section ref={myRef} id="target-section">
+        <div className={styles.contact}>
+          <div className={styles.information}>
+            <h2>Contact Us to Enhance Your Business with AI</h2>
+            <div className={styles.contactCards}>
+              <div className={styles.from}>
+                <form className={styles.myForm}>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="name" className={styles.label}>
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      className={styles.input}
+                      required
+                    />
+                  </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="email" className={styles.label}>
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className={styles.input}
-                    required
-                  />
-                </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="email" className={styles.label}>
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      className={styles.input}
+                      required
+                    />
+                  </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="message" className={styles.label}>
-                    Organization / Company Name
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    className={styles.textarea}
-                    required
-                  ></textarea>
-                </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="phone" className={styles.label}>
+                      Phone no. *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      className={styles.input}
+                      required
+                      placeholder="e.g., +1234567890"
+                      pattern="^\+?[0-9\s\-]{7,15}$"
+                      title="Enter a valid phone number (e.g., +1234567890)"
+                    />
+                  </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="dropdown" className={styles.label}>
-                    Which option best describes your company?
-                  </label>
-                  <select
-                    id="dropdown"
-                    name="dropdown"
-                    className={styles.select}
-                    required
-                  >
-                    <option value="">Select...</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                  </select>
-                </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="organization" className={styles.label}>
+                      Organization / Company Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="organization"
+                      name="organization"
+                      className={styles.input}
+                      required
+                    />
+                  </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="additionalMessage" className={styles.label}>
-                    Tell us more about your project needs
-                  </label>
-                  <textarea
-                    id="additionalMessage"
-                    name="additionalMessage"
-                    className={styles.textarea}
-                    required
-                  ></textarea>
-                </div>
+                  <div className={styles.formGroup}>
+                    <label className={styles.label}>
+                      Check all the services you need *
+                    </label>
+                    <div className={styles.checkboxGroup}>
+                      <div className={styles.checkBoxItem}>
+                        <input
+                          type="checkbox"
+                          id="option1"
+                          name="options"
+                          value="option1"
+                          className={styles.checkbox}
+                          required
+                        />
+                        <label
+                          htmlFor="option1"
+                          className={styles.checkboxLabel}
+                        >
+                          Option 1
+                        </label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="option2"
+                          name="options"
+                          value="option2"
+                          className={styles.checkbox}
+                          required
+                        />
+                        <label
+                          htmlFor="option2"
+                          className={styles.checkboxLabel}
+                        >
+                          Option 2
+                        </label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="option3"
+                          name="options"
+                          value="option3"
+                          className={styles.checkbox}
+                          required
+                        />
+                        <label
+                          htmlFor="option3"
+                          className={styles.checkboxLabel}
+                        >
+                          Option 3
+                        </label>
+                      </div>
+                    </div>
+                  </div>
 
-                <button type="submit" className={styles.button}>
-                  Submit
-                </button>
-              </form>
-            </div>
-            <div className={styles.rightCards}>
-              <div className={styles.meetingCard}>
-                <img className={styles.meetingIcon} src={meetingIcon} />
-                <h2 className={styles.meetingTitle}>Book a Meeting</h2>
-                <p className={styles.meetingText}>
-                  Ready to explore the power of AI? Book a meeting to discuss
-                  your project needs and find the right AI solutions.
-                </p>
-                <button className={styles.meetingButton}>Book a Meeting</button>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="additionalMessage" className={styles.label}>
+                      Other Services or Custom Needs
+                    </label>
+                    <textarea
+                      id="additionalMessage"
+                      name="additionalMessage"
+                      className={styles.textarea}
+                    ></textarea>
+                  </div>
+
+                  <button type="submit" className={styles.button}>
+                    Get Started
+                  </button>
+                </form>
               </div>
-              <div className={styles.contactCard}>
-                <h2 className={styles.contactTitle}>Contact</h2>
+              <div className={styles.rightCards}>
+                <div className={styles.meetingCard}>
+                  <img className={styles.meetingIcon} src={meetingIcon} />
+                  <h2 className={styles.meetingTitle}>Book a Meeting</h2>
+                  <p className={styles.meetingText}>
+                    Ready to explore the power of AI? Book a meeting to discuss
+                    your project needs and find the right AI solutions.
+                  </p>
+                  <a
+                    href="https://forms.gle/qPs2fPCYmM4JHjSo8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className={styles.meetingButton}>
+                      Book a Meeting
+                    </button>
+                  </a>
+                </div>
+                <div className={styles.contactCard}>
+                  <img className={styles.whatsappIcon} src={whatsappIcon} />
+                  <h2 className={styles.contactTitle}>Connect on Whatsapp</h2>
+                  <p>
+                    Have a quick question or need immediate assistance? Reach
+                    out on WhatsApp for a fast and direct response.
+                  </p>
+                  <a
+                    href="https://forms.gle/qPs2fPCYmM4JHjSo8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className={styles.meetingButton}>
+                      Message Us Now
+                    </button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

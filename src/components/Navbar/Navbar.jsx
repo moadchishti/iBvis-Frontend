@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css"; // Import CSS for styling
 import logo from "../../assets/logo.png";
 
-const Navbar = () => {
+const Navbar = ({jump, jumpToFeatures}) => {
   return (
     <nav className={styles.navbar}>
       {/* <div className={styles.navbar_wrapper}> */}
@@ -17,9 +17,10 @@ const Navbar = () => {
       </div>
       <ul className={styles.navbar_links}>
         <li>
-          <Link to="/technology">Technology</Link>
+          {/* <Link to="/technology">Features</Link> */}
+          <button className={styles.centerButton} onClick={jumpToFeatures}>Features</button>
         </li>
-        <li>
+        {/* <li>
           <Link to="/ai_solutions">AI Solutions</Link>
         </li>
         <li>
@@ -27,9 +28,9 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/about">About</Link>
-        </li>
+        </li> */}
       </ul>
-      <button className={styles.book_meeting_button}>Book a Meeting</button>
+      <button className={styles.book_meeting_button} onClick={jump}>Book a Meeting</button>
       {/* </div> */}
     </nav>
   );

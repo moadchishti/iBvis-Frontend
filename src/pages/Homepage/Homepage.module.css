@@ -18,7 +18,7 @@
 
   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
+  -webkit-mask-size: 90% 90%;
   
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
   mask-repeat: no-repeat;
@@ -103,14 +103,16 @@
 
 .moreInfo div {
   text-align: left; /* Aligns text properly */
-  padding: 0.5rem; /* Adjusts internal spacing */
+  padding: 1rem; /* Adjusts internal spacing */
   margin: 0; /* Removes extra margin */
+  text-align: center;
 }
 
 .card {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px); 
     border-radius: 12px;
+    /* text-align: center; */
 }
 
 .particles {
@@ -129,6 +131,7 @@
   padding: 2rem;
   justify-content: center;
   align-items: center;
+  /* padding-top: 6rem; */
 }
 
 .infoHeading {
@@ -182,14 +185,15 @@
   padding-top: 0;
 }
 
-.solutions {
+/* .solutions {
   
-}
+} */
 
 .contact {
   background-color: #00000083;
-  color: white;
+  /* color: rgb(95, 95, 95); */
   backdrop-filter: blur(2px);
+  height: 55rem;
 }
 
 .contactCards {
@@ -199,6 +203,7 @@
   grid-gap: 20px;                 /* Add some space between the cards */
   height: 100vh; 
   width: 70rem;
+  color: rgb(95, 95, 95);
 }
 
 .contactCard {
@@ -207,6 +212,7 @@
   border-radius: 15px ;
   display: flex;
   flex-direction: column;
+  color: rgb(95, 95, 95);
 }
 
 .form {
@@ -361,4 +367,49 @@
   border-radius: 15px ;
   display: flex;
   flex-direction: column;
+}
+
+/* Style for the checkbox container */
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.checkBoxItem {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  appearance: none; /* Remove default checkbox styles */
+  width: 20px;
+  height: 20px;
+  background-color: white; /* Checkbox background color */
+  border: 2px solid black; /* Border styling */
+  border-radius: 4px; /* Optional: rounded corners */
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  background-color: white; /* Keep the background white */
+  border-color: black; /* Optional: highlight when checked */
+}
+
+.checkbox:checked::after {
+  display: flex;
+  content: '✔'; /* Add a custom checkmark */
+  font-size: 16px;
+  color: rgb(0, 155, 0); /* Checkmark color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+.whatsappIcon {
+  width: 5rem;
+  opacity: 70%;
 }

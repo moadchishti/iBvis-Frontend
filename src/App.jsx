@@ -17,6 +17,8 @@ function App() {
         </header> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/qrjump" element={<HomePage />} />
+
           {/* <Route path="/about" element={<AboutPage />} /> */}
           {/* <Route path="/contact" element={<ContactPage />} /> */}
         </Routes>
