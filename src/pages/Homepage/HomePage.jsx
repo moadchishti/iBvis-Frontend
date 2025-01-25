@@ -41,19 +41,19 @@ const HomePage = () => {
   const myRef = useRef(null);
   const featuresRef = useRef(null);
 
-  // const executeScroll = () => myRef.current.scrollIntoView('smooth')  
+  // const executeScroll = () => myRef.current.scrollIntoView('smooth')
   const executeScroll = () => {
     myRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const jumpToFeaturesFunc = () => {
     featuresRef.current.scrollIntoView({ behavior: "smooth" });
-  }
+  };
 
   return (
     <>
       <div className={styles.mainContent}>
-        <Navbar jump={executeScroll} jumpToFeatures={jumpToFeaturesFunc}/>
+        <Navbar jump={executeScroll} jumpToFeatures={jumpToFeaturesFunc} />
 
         <div className={styles.homepage}>
           <div
@@ -282,7 +282,7 @@ const HomePage = () => {
           <div className={styles.information}>
             <h2>Contact Us to Enhance Your Business with AI</h2>
             <div className={styles.contactCards}>
-              <div className={styles.from}>
+              {/* <div className={styles.from}>
                 <form className={styles.myForm}>
                   <div className={styles.formGroup}>
                     <label htmlFor="name" className={styles.label}>
@@ -410,7 +410,7 @@ const HomePage = () => {
                     Get Started
                   </button>
                 </form>
-              </div>
+              </div> */}
               <div className={styles.rightCards}>
                 <div className={styles.meetingCard}>
                   <img className={styles.meetingIcon} src={meetingIcon} />
@@ -436,15 +436,15 @@ const HomePage = () => {
                     Have a quick question or need immediate assistance? Reach
                     out on WhatsApp for a fast and direct response.
                   </p>
-                  <a
-                    href="https://forms.gle/qPs2fPCYmM4JHjSo8"
-                    target="_blank"
-                    rel="noopener noreferrer"
+
+                  <button
+                    className={styles.meetingButton}
+                    onClick={() =>
+                      window.open("https://wa.me/+923284411661", "_blank")
+                    }
                   >
-                    <button className={styles.meetingButton}>
-                      Message Us Now
-                    </button>
-                  </a>
+                    Message Us Now
+                  </button>
                 </div>
               </div>
             </div>
